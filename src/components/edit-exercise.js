@@ -4,6 +4,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useParams } from "react-router-dom";
 
+import Navbar from "./navbar";
+
 export default function EditExercise() {
   const { id } = useParams();
   const [username, setUsername] = useState("");
@@ -58,6 +60,7 @@ export default function EditExercise() {
 
   return (
     <div>
+      <Navbar />
       <h3>Edit Exercise Log</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">

@@ -1,44 +1,32 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Navbar, Container, Nav } from "react-bootstrap";
-
+import NavigationBar from "./components/navbar";
 import CreateExercise from "./components/create-exercise";
 import EditExercise from "./components/edit-exercise";
 import ExercisesList from "./components/exercises-list";
 import CreateUser from "./components/create-user";
 
+import Signup from "./components/signup";
+import Login from "./components/login";
+import Home from "./components/home";
+
 function App() {
+  const [email, setEmail] = useState(""); // State to hold the email
+
   return (
     <Router>
-      <div className="container">
-        <Navbar bg="dark" data-bs-theme="dark">
-          <Container>
-            <Navbar.Brand as={Link} to="/">
-              Exercises
-            </Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/edit/:id">
-                Edit Exercise
-              </Nav.Link>
-              <Nav.Link as={Link} to="/create">
-                Create Exercise
-              </Nav.Link>
-              <Nav.Link as={Link} to="/user">
-                Create User
-              </Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-
-        <Routes>
-          <Route path="/" element={<ExercisesList />} />
-          <Route path="/edit/:id" element={<EditExercise />} />
-          <Route path="/create" element={<CreateExercise />} />
-          <Route path="/user" element={<CreateUser />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<ExercisesList email={email} />} />
+        <Route path="/edit/:id" element={<EditExercise email={email} />} />
+        <Route path="/create" element={<CreateExercise email={email} />} />
+        <Route path="/user" element={<CreateUser email={email} />} />
+        <Route path="/register" element={<Signup />} />
+        <Route path="/login" element={<Login setEmail={setEmail} />} />{" "}
+        {/* Pass setEmail function */}
+        {/* <Route path="/home" element={<Home email={email} />} /> */}
+      </Routes>
     </Router>
   );
 }

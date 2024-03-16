@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import Navbar from "./navbar";
+
 export default function CreateUser() {
   const [username, setUsername] = useState("");
 
@@ -22,6 +24,7 @@ export default function CreateUser() {
 
   return (
     <div>
+      <Navbar />
       <h3>Create New User</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">

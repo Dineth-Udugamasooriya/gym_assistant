@@ -3,6 +3,8 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import Navbar from "./navbar";
+
 export default function CreateExercise() {
   const [username, setUsername] = useState("");
   const [description, setDescription] = useState("");
@@ -46,12 +48,13 @@ export default function CreateExercise() {
 
   return (
     <div>
+      <Navbar />
       <h3>Create New Exercise Log</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label>Username: </label>
           <select
-            ref={userInputRef} // Assign the ref here
+            ref={userInputRef} // Assign the ref here.
             required
             className="form-control"
             value={username}

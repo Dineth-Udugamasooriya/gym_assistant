@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Navbar from "./navbar";
 
 const Exercise = (props) => (
   <tr>
@@ -39,6 +40,7 @@ export default function ExercisesList() {
 
   return (
     <div>
+      <Navbar />
       <h3>Logged Exercises</h3>
       <table className="table">
         <thead className="thead-light">

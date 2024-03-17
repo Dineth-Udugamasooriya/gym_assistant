@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import Navbar from "./navbar";
 
-export default function CreateExercise() {
+export default function CreateExercise({ email }) {
   const [username, setUsername] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState(0);
@@ -45,6 +45,8 @@ export default function CreateExercise() {
 
     window.location = "/";
   };
+
+  console.log(email);
 
   return (
     <div>

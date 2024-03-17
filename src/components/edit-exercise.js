@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 import Navbar from "./navbar";
 
-export default function EditExercise() {
+export default function EditExercise({ email }) {
   const { id } = useParams();
   const [username, setUsername] = useState("");
   const [description, setDescription] = useState("");
@@ -57,6 +57,8 @@ export default function EditExercise() {
 
     window.location = "/";
   };
+
+  console.log(email);
 
   return (
     <div>

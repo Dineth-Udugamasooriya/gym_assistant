@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Navbar from "./navbar";
 
-export default function CreateUser() {
+export default function CreateUser({ email }) {
   const [username, setUsername] = useState("");
 
   const onSubmit = (e) => {
@@ -21,6 +21,8 @@ export default function CreateUser() {
 
     setUsername("");
   };
+
+  console.log(email);
 
   return (
     <div>

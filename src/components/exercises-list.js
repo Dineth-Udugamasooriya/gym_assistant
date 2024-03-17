@@ -16,12 +16,12 @@ const Exercise = (props) => (
   </tr>
 );
 
-export default function ExercisesList() {
+export default function ExercisesList({ email }) {
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/exercises/")
+      .get("http://localhost:5000/exercises/" + email)
       .then((response) => {
         setExercises(response.data);
       })
@@ -37,6 +37,8 @@ export default function ExercisesList() {
 
     setExercises(exercises.filter((el) => el._id !== id));
   };
+
+  console.log(email);
 
   return (
     <div>

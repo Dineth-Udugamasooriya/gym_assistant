@@ -21,11 +21,13 @@ const exercisesRouter = require("./routes/exercises");
 const usersRouter = require("./routes/users");
 const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
+const trainerRouter = require("./routes/trainers");
 
 app.use("/exercises", exercisesRouter);
 app.use("/users", usersRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
+app.use("/trainers", trainerRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
